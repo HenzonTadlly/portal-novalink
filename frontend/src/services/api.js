@@ -1,8 +1,8 @@
-// frontend/src/services/api.js
 import axios from 'axios';
 
 const api = axios.create({
-    baseURL: 'http://localhost:3333/api', // O endereço do nosso Back-end!
+  // Trocamos o localhost pelo seu servidor na nuvem!
+  baseURL: 'https://portal-novalink.onrender.com/api' 
 });
 
 export default api;
