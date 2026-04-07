@@ -12,7 +12,7 @@ const { adicionarArtigo, listarArtigos, editarArtigo, excluirArtigo } = require(
 const { registrar, login, listarUsuarios, editarUsuario, excluirUsuario, atualizarFotoPorNome } = require('./controllers/authController');
 const { registrarDiario, listarDiario, excluirDiario } = require('./controllers/diarioController');
 const app = express();
-app.use(cors());
+app.use(cors({ origin: '*' }));
 app.use(express.json());
 
 // --- CONFIGURAÇÃO DE UPLOAD DE IMAGENS (MULTER) ---
@@ -71,9 +71,9 @@ app.get('/api/diario', listarDiario);
 app.delete('/api/diario/:id', excluirDiario);
 
 // --- INICIANDO O SERVIDOR ---
-const PORT = 3333;
+const PORT = process.env.PORT || 3333;
 app.listen(PORT, () => {
-    console.log(`🚀 Backend rodando na porta ${PORT}`);
+    console.log(`Servidor rodando na porta ${PORT}`);
+});
 
     
-});
